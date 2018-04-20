@@ -62,7 +62,7 @@ header {
             animation-name: animateBg;
             animation-timing-function: cubic-bezier(0.78, 0.76, 0.31, 0.31); }
             header nav .category .nav_wrapper .nav_item .text:hover .triangle_bottom {
-              transform: rotate(-180deg); }
+              transform: rotate(180deg) translateY(50%); }
           header nav .category .nav_wrapper .nav_item .text .triangle_bottom {
             display: inline-block;
             width: 0;
@@ -120,7 +120,7 @@ header {
                 background: #333333;
                 vertical-align: middle;
                 margin-left: 2px;
-                margin-right: 1px; }
+                margin-right: 2px; }
             header nav .category .nav_wrapper .nav_item .slide_wrapper .slide_container .line {
               display: inline-block;
               width: 1px;
