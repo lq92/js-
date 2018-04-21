@@ -28,6 +28,14 @@ h1, h2, h3, h4 {
     background: #2577e3; }
   to {
     background: #0a56bb; } }
+.animateBg {
+  animation-duration: 0.3s;
+  animation-name: animateBg;
+  animation-timing-function: cubic-bezier(0.78, 0.76, 0.31, 0.31); }
+
+.active {
+  background: #0a56bb; }
+
 header {
   display: flex;
   justify-content: center;
@@ -57,12 +65,10 @@ header {
           color: white;
           padding: 0 8px;
           position: relative; }
-          header nav .category .nav_wrapper .nav_item .text:hover {
-            animation-duration: 0.3s;
-            animation-name: animateBg;
-            animation-timing-function: cubic-bezier(0.78, 0.76, 0.31, 0.31); }
-            header nav .category .nav_wrapper .nav_item .text:hover .triangle_bottom {
-              transform: rotate(180deg) translateY(50%); }
+          header nav .category .nav_wrapper .nav_item .text:hover .triangle_bottom {
+            transform: rotate(180deg) translateY(50%); }
+          header nav .category .nav_wrapper .nav_item .text:hover .triangle_top {
+            display: inline-block; }
           header nav .category .nav_wrapper .nav_item .text .triangle_bottom {
             display: inline-block;
             width: 0;
@@ -70,7 +76,7 @@ header {
             border: 3px solid transparent;
             border-top-color: white;
             margin-left: 5px;
-            transition: linear 0.2s; }
+            transition: linear 0.1s; }
           header nav .category .nav_wrapper .nav_item .text .triangle_top {
             display: inline-block;
             width: 0;
@@ -78,11 +84,10 @@ header {
             border: 7px solid transparent;
             border-bottom-color: white;
             position: absolute;
-            top: 26px;
-            left: 21px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-7px, 6px);
             display: none; }
-          header nav .category .nav_wrapper .nav_item .text.active {
-            background: #0a56bb; }
         header nav .category .nav_wrapper .nav_item .line {
           display: inline-block;
           width: 1px;
