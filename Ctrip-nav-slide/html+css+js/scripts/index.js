@@ -1,3 +1,4 @@
+// 插入的下拉项的数据
 let slideContent = [ [], 
 	[
 		{ "text": "国内酒店", "href": "javascript:;" },
@@ -99,7 +100,7 @@ function createElement(ele, propertyHash = {}){
 	})
 	return element;
 }
-// 添加下拉想DOM结构
+// 添加下拉项DOM结构
 function appendElement(eleArr){
 	let documentFragment = document.createDocumentFragment(),
 			slideWrapper = createElement('div', { className: 'slide_wrapper' }),
@@ -117,25 +118,87 @@ function appendElement(eleArr){
 	slideWrapper.appendChild(slideContainer);
 	return slideWrapper;
 }
+// 数组slice方法
+let slice = Array.prototype.slice;
+// 动态切换目标元素的class,传入的参数：dom节点,切换的class名,发生的事件名(optinal)
+function toggleClass(node, className, ev = null){ 
+	if(ev){
+		node.addEventListener(ev, () => {
+			node.classList.toggle(className)
+		})
+	}
+	node.classList.toggle(className)
+}
+// 动态切换目标元素中子元素的显示隐藏,传入的参数: 发生事件的目标节点,要切换的子节点或子节点数组,子节点显示或隐藏的标志,发生的事件名(optinal)
+function toggleDisplay(parentNode, childNode, flag, ev = null){
+	let child = Array.isArray(childNode) ? slice.call(childNode) : childNode;
+	function appearOrDisappear(){
+		if(Array.isArray(childNode)){
+			childNode.forEach(childnode => {
+				childnode.style.display = flag ? 'block' : 'none'
+			})
+		}else{
+			childNode.style.display = flag ? 'block' : 'none'
+		}
+	}
+	if(ev){
+		parentNode.addEventListener(ev, appearOrDisappear)
+	}
+	return appearOrDisappear;
+}
+// 页面加载后直接添加下拉内容
 window.addEventListener('load', () => {
 	let navItem = document.querySelectorAll('.nav_item');
-	Array.prototype.slice.call(navItem).forEach((navitem, index) => {
-		// 判断下拉不为空时添加
+	slice.call(navItem).forEach((navitem, index) => {
+		// 判断下拉内容不为空时添加下拉内容、切换背景动画、下拉内容的切换
 		if(slideContent[index] && slideContent[index].length !== 0){ 
+			// 添加下拉内容
 			navitem.appendChild(appendElement(slideContent[index]))
-			navitem.addEventListener('mouseover', (ev) => {
-				navitem.classList.add('animateBg')
-			})
-			navitem.addEventListener('mouseout', (ev) => {
-				navitem.classList.remove('animateBg')
-			})
-		}else if(index !== 0){ // 为空时除第一个固定active,其余动态切换
-			navitem.addEventListener('mouseover', (ev) => {
-				navitem.children[0].classList.add('active')
-			})
-			navitem.addEventListener('mouseout', (ev) => {
-				navitem.children[0].classList.remove('active')
-			})
+			// 切换背景动画
+			toggleClass(navitem, 'animateBg', 'mouseover')
+			toggleClass(navitem, 'animateBg', 'mouseout')
+			// 下拉内容切换
+			let triangleTop = navitem.querySelector('.triangle_top'),
+					slideWrapper = navitem.querySelector('.slide_wrapper');
+			toggleDisplay(navitem, [triangleTop, slideWrapper], true, 'mouseover')
+			toggleDisplay(navitem, [triangleTop, slideWrapper], false, 'mouseout')	
+		}else if(index !== 0){ // 下拉内容为空时除第一个首页固定active,其余根据鼠标移入移出动态切换
+			let text = navitem.querySelector('.text')
+			toggleClass(text, 'active', 'mouseover')
+			toggleClass(text, 'active', 'mouseout')
 		}
 	})
 })
+// 页面加载后等鼠标移入后再加载下拉内容
+/*window.addEventListener('load', () => {
+	let navItem = document.querySelectorAll('.nav_item');
+	slice.call(navItem).forEach((navitem, index) => {
+		let triangleTop = null,
+				slideWrapper = null;
+		if(slideContent[index] && slideContent[index].length > 0){
+			navitem.addEventListener('mouseover', () => {
+				toggleClass(navitem, 'animateBg') // 切换背景: 移入添加背景
+				// 有下拉内容则进入,否则退出
+				if(slideContent[index] && slideContent[index].length > 0){
+					// 如果下拉存在则退出,否则添加
+					slideWrapper ? '' : navitem.appendChild(appendElement(slideContent[index]))
+					triangleTop = navitem.querySelector('.triangle_top');
+					slideWrapper = navitem.querySelector('.slide_wrapper');
+					// 当前鼠标放上去时显示子下拉
+					toggleDisplay(navitem, [triangleTop, slideWrapper], true)()
+				}else{
+					return;
+				}
+			})
+			navitem.addEventListener('mouseout', () => {
+				// 有下拉内容则鼠标移出消失,否则退出
+				slideWrapper ? toggleDisplay(navitem, [triangleTop, slideWrapper], false)() : '';
+				toggleClass(navitem, 'animateBg') // 切换背景: 移出删除背景
+			})
+		}else if(index !== 0){ // 下拉内容为空时除第一个首页固定active,其余根据鼠标移入移出动态切换
+			let text = navitem.querySelector('.text')
+			toggleClass(text, 'mouseover', 'active')
+			toggleClass(text, 'mouseout', 'active')
+		}
+	})
+})*/
