@@ -147,7 +147,7 @@ function toggleDisplay(parentNode, childNode, flag, ev = null){
 	return appearOrDisappear;
 }
 // 页面加载后直接添加下拉内容
-window.addEventListener('load', () => {
+/*window.addEventListener('load', () => {
 	let navItem = document.querySelectorAll('.nav_item');
 	slice.call(navItem).forEach((navitem, index) => {
 		// 判断下拉内容不为空时添加下拉内容、切换背景动画、下拉内容的切换
@@ -168,9 +168,9 @@ window.addEventListener('load', () => {
 			toggleClass(text, 'active', 'mouseout')
 		}
 	})
-})
+})*/
 // 页面加载后等鼠标移入后再加载下拉内容
-/*window.addEventListener('load', () => {
+window.addEventListener('load', () => {
 	let navItem = document.querySelectorAll('.nav_item');
 	slice.call(navItem).forEach((navitem, index) => {
 		let triangleTop = null,
@@ -201,4 +201,4 @@ window.addEventListener('load', () => {
 			toggleClass(text, 'mouseout', 'active')
 		}
 	})
-})*/
+})
