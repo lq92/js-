@@ -15,12 +15,217 @@ a {
   text-decoration: none; }
 
 img {
-  vertical-align: middle; }
+  vertical-align: middle;
+  border: none;
+  width: 100%;
+  height: auto; }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, p {
   font: 15px/1 "Microsoft Yahei";
   color: black;
   padding: 0;
   margin: 0; }
+
+body {
+  background: #f6f6f6; }
+
+main {
+  width: 1180px;
+  height: 428px;
+  margin: 20px auto; }
+
+.travel .parent_nav {
+  font-size: 0;
+  border-bottom: 2px solid #3983e5; }
+  .travel .parent_nav .title {
+    padding: 10px 0;
+    margin-right: 30px;
+    font-size: 16px;
+    line-height: 36px;
+    color: #333333;
+    position: relative; }
+    .travel .parent_nav .title:hover {
+      color: #3983e5; }
+    .travel .parent_nav .title.active {
+      color: #3983e5; }
+      .travel .parent_nav .title.active .triangle_top {
+        display: block; }
+    .travel .parent_nav .title .triangle_top {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+      border-bottom-color: #3983e5;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, -100%);
+      display: none; }
+.travel .container {
+  width: 100%;
+  height: 390px;
+  padding: 15px 19px;
+  box-sizing: border-box;
+  background: white;
+  border: 1px solid #e0e0e0;
+    border-top: none; }
+  .travel .container .child_nav {
+    position: relative; }
+    .travel .container .child_nav .child_title {
+      padding: 4px 8px;
+      margin-right: 14px;
+      font-size: 12px;
+      color: #3983e5;
+      line-height: 26px;
+      border-radius: 3px; }
+      .travel .container .child_nav .child_title:hover {
+        background: #3983e5;
+        color: white; }
+      .travel .container .child_nav .child_title.active {
+        background: #3983e5;
+        color: white; }
+    .travel .container .child_nav .more {
+      font-size: 12px;
+      color: #3983e5;
+      padding: 4px 8px;
+      position: absolute;
+      right: -9px;
+      top: 2px;
+      border: 1px solid transparent;
+      border-radius: 3px; }
+      .travel .container .child_nav .more:hover {
+        border-color: #3983e5; }
+      .travel .container .child_nav .more .right_arrow {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-left-color: #0066cc;
+        position: relative;
+        margin-right: -3px;
+        margin-bottom: -1px;
+        margin-left: 2px; }
+        .travel .container .child_nav .more .right_arrow:after {
+          border: 6px solid transparent;
+          border-left-color: white;
+          position: absolute;
+          left: -7px;
+          width: 0;
+          height: 0;
+          content: ""; }
+        .travel .container .child_nav .more .right_arrow:after {
+          top: -6px; }
+  .travel .container .content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px; }
+    .travel .container .content .item_wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 910px; }
+      .travel .container .content .item_wrapper .item {
+        display: inline-block;
+        width: 220px;
+        height: 160px;
+        font-size: 11px;
+        background: white;
+        margin-bottom: 10px; }
+        .travel .container .content .item_wrapper .item:hover {
+          box-shadow: 1px 1px 3px 3px rgba(137, 137, 137, 0.1); }
+        .travel .container .content .item_wrapper .item .img_box {
+          width: 220px;
+          height: 110px;
+          overflow: hidden;
+          position: relative; }
+          .travel .container .content .item_wrapper .item .img_box .desc {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 25px;
+            line-height: 25px;
+            color: white;
+            background: rgba(0, 0, 0, 0.4); }
+        .travel .container .content .item_wrapper .item .title {
+          width: 100%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          margin: 8px 0 12px;
+          font-size: 11px;
+          color: #666666; }
+        .travel .container .content .item_wrapper .item .price_wrapper .store {
+          float: left;
+          font-size: 11px;
+          font-weight: 400;
+          color: #999999; }
+        .travel .container .content .item_wrapper .item .price_wrapper .price {
+          float: right;
+          margin-bottom: 2px; }
+          .travel .container .content .item_wrapper .item .price_wrapper .price span {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ff6600; }
+            .travel .container .content .item_wrapper .item .price_wrapper .price span sup {
+              color: #666666;
+              font-size: 9px; }
+            .travel .container .content .item_wrapper .item .price_wrapper .price span strong {
+              margin-left: 4px;
+              font-weight: 400;
+              font-size: 11px;
+              color: #666666; }
+    .travel .container .content aside .img_box {
+      display: inline-block;
+      width: 220px;
+      height: 330px;
+      position: relative; }
+      .travel .container .content aside .img_box .desc {
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 11px;
+        color: white;
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        bottom: 0;
+        left: 0; }
+
+#test .arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-left-color: black;
+  position: relative; }
+  #test .arrow:after {
+    border: 6px solid transparent;
+    border-left-color: #f6f6f6;
+    position: absolute;
+    left: -7px;
+    width: 0;
+    height: 0;
+    content: ""; }
+  #test .arrow:after {
+    top: -6px; }
+#test .arrow1 {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top-color: black;
+  position: relative; }
+  #test .arrow1:after {
+    border: 6px solid transparent;
+    border-top-color: #f6f6f6;
+    position: absolute;
+    top: -7px;
+    width: 0;
+    height: 0;
+    content: ""; }
+  #test .arrow1:after {
+    left: -6px; }
 
 /*# sourceMappingURL=index.css.map */
