@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Switch Tab</title>
+	<meta charset="utf-8">
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	.tab {
+		margin: 30px;
+	}
+	.tab li {
+		list-style: none;
+		display: inline-block;
+		margin-right: 8px;
+		padding: 4px 10px;
+		border: 1px solid #000;
+		cursor: pointer;
+	}	
+	.tab li.active {
+		background: #000;
+		color: #fff;
+	}
+	.tab .content_box {
+		position: relative;
+		width: 260px;
+		height: 180px;
+	}
+	.tab .content {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border: 1px solid #000;
+		background: #fff;
+		display: none;
+	}
+	.tab .content.active {
+		display: block;
+	}
+	</style>
+</head>
+<body>
+<div class='tab tab1'>
+	<ul class='title_box'>
+		<li class='title active'>电影</li>
+		<li class='title'>编程</li>
+		<li class='title'>读书</li>
+	</ul>
+	<div class='content_box'>
+		<div class='content active'>我是电影栏目</div>
+		<div class='content'>我是编程栏目</div>
+		<div class='content'>我是读书栏目</div>
+	</div>
+</div>
+<div class='tab tab2'>
+	<ul class='title_box'>
+		<li class='title active'>JS</li>
+		<li class='title'>Vue</li>
+		<li class='title'>React</li>
+	</ul>
+	<div class='content_box'>
+		<div class='content active'>我是JS栏目</div>
+		<div class='content'>我是Vue栏目</div>
+		<div class='content'>我是React栏目</div>
+	</div>
+</div>
+<script src='index.js'></script>
+</body>
+</html>
