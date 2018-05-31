@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drag</title>
+	<meta charset="utf-8">
+	<style>
+	.drag {
+		width: 100px;
+		height: 100px;
+		background: #000;
+		transform: translate(10px, 20px);
+		position: absolute;
+		top: 40px;
+		left: 30px;
+	}
+	.drag1 {
+		width: 100px;
+		height: 100px;
+		background: #f00;
+	}
+	</style>
+</head>
+<body>
+<div class='drag'></div>
+<div class='drag1'></div>
+<script src='index.js'></script>
+<script>
+new Drag('.drag').setDrag()
+new Drag('.drag1').setDrag()
+</script>
+</body>
+</html>
+
