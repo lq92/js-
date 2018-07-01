@@ -1,0 +1,16 @@
+body, h1, h2, h3, h4, h5, ul, ol, li, dl, dt, dd, p {
+  font: normal 16px/1 'Microsoft Yahei', Arial, sans-serif;
+  padding: 0;
+  margin: 0; }
+
+a {
+  font: normal 16px/1 'Microsoft Yahei', Arial, sans-serif;
+  text-decoration: none; }
+
+img {
+  vertical-align: middle; }
+
+li {
+  list-style: none; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,64 @@
+.slider {
+  position: relative;
+  margin: 0 auto;
+  width: 520px;
+  height: 280px;
+  border: 1px solid #000;
+  overflow: hidden; }
+  .slider .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2600px;
+    height: 100%; }
+  .slider .prev, .slider .next {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    cursor: pointer; }
+    .slider .prev:hover, .slider .next:hover {
+      background: rgba(0, 0, 0, 0.6); }
+    .slider .prev .iconfont, .slider .next .iconfont {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      color: white;
+      font-weight: 700; }
+  .slider .prev {
+    left: 0;
+    transform: translate(-50%, 0); }
+    .slider .prev .iconfont {
+      right: 4px; }
+  .slider .next {
+    right: 0;
+    transform: translate(50%, 0); }
+    .slider .next .iconfont {
+      left: 4px; }
+  .slider .dot_boxer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    transform: translate(-50%, 0);
+    box-sizing: border-box;
+    padding: 0 3px;
+    width: 70px;
+    height: 13px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 5px; }
+    .slider .dot_boxer .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      cursor: pointer; }
+      .slider .dot_boxer .dot.active {
+        background: #ff5000; }
+
+/*# sourceMappingURL=slider.css.map */
