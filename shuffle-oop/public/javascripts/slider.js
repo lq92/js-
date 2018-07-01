@@ -56,4 +56,3 @@ prev.addEventListener('click', () => {
 }) */
 //import Slider from 'shuffle.js';
 let slider = new Slider('.slider1')
-let slider1 = new Slider('.slider2')
