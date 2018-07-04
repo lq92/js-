@@ -8,7 +8,9 @@
   .slider .container {
     position: absolute;
     top: 0;
-    left: 0; }
+    left: 0;
+    width: 2600px;
+    height: 100%; }
   .slider .prev, .slider .next {
     position: absolute;
     top: 50%;

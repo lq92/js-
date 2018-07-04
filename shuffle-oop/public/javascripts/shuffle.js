@@ -15,7 +15,8 @@ let defaultOptions = {
   ],
   timingFunction: 'linear',
   duration: '0.2s',
-  propertyName: 'all'
+  propertyName: 'all',
+  autoPlay: true
 }
 function isObject(obj){
   return typeof obj === 'object' && !!obj;
@@ -26,6 +27,7 @@ function getStyle(ele, property){
 function Slider(ele, options = {}){
   this.ele = isObject(ele) ? ele : document.querySelector(ele);
   this.options = Object.assign(defaultOptions, options);
+  this.timer = null;
   this.init();
 }
 Slider.prototype = {
@@ -35,14 +37,19 @@ Slider.prototype = {
         prev = this.ele.querySelector('.prev');
     let images = this.createImages(this.options.images);
     this.ele.insertBefore(images, this.ele.firstElementChild)
-    console.log(images)
-    console.log(images.firstElementChild.getBoundingClientRect())
     next.addEventListener('click', e => {
       this.move(-520);
     })
     prev.addEventListener('click', e => {
       this.move(520);
     })
+    if(this.options.autoPlay){
+      this.auto()
+    }
+  },
+  auto(){
+    clearInterval(this.timer);
+    this.timer = setInterval(() => this.move(-520), 2500)
   },
   move(offset){
     let container = this.ele.querySelector('.container');
